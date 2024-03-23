@@ -30,16 +30,16 @@ jobs:
 
       - name: Build base and push
         run: ./build-base.sh
-  phpstan:
+  rector:
     needs: [base]
     runs-on: ubuntu-latest
     steps:
       - name: Get latest PHP Mess Detector version
-        id: phpstan_version
+        id: rector_version
         run: |
-          VERSION=$(curl https://api.github.com/repos/phpstan/phpstan/releases/latest | jq '.tag_name | ltrimstr("v")' -r)
-          echo "PHPSTAN_VERSION=${VERSION}" >> "$GITHUB_OUTPUT"
-          echo "PHPSTAN_VERSION=${VERSION}" >> "$GITHUB_ENV"
+          VERSION=$(curl https://api.github.com/repos/rectorphp/rector/releases/latest | jq '.tag_name | ltrimstr("v")' -r)
+          echo "RECTOR_VERSION=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "RECTOR_VERSION=${VERSION}" >> "$GITHUB_ENV"
 
       - name: Login into Github Docker Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -56,9 +56,9 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           build-args: |
-            PHP_PHPSTAN_VERSION=${{ steps.phpstan_version.outputs.PHPSTAN_VERSION }}
+            PHP_RECTOR_VERSION=${{ steps.rector_version.outputs.RECTOR_VERSION }}
           tags: |
-            marcusmu/php-phpstan:latest
-            marcusmu/php-phpstan:${{ steps.phpstan_version.outputs.PHPSTAN_VERSION }}
-            ghcr.io/m-arcus/php-phpstan:latest
-            ghcr.io/m-arcus/php-phpstan:${{ steps.phpstan_version.outputs.PHPSTAN_VERSION }}
+            marcusmu/php-rector:latest
+            marcusmu/php-rector:${{ steps.rector_version.outputs.RECTOR_VERSION }}
+            ghcr.io/m-arcus/php-rector:latest
+            ghcr.io/m-arcus/php-rector:${{ steps.rector_version.outputs.RECTOR_VERSION }}

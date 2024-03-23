@@ -1,19 +1,18 @@
-FROM ghcr.io/m-arcus/php-phpstan:base
+FROM ghcr.io/m-arcus/php-rector:base
 
-ARG PHP_PHPSTAN_VERSION=1.10.63
+ARG PHP_RECTOR_VERSION=1.0.3
 
 LABEL org.opencontainers.image.authors="M-arcus" \
-      org.opencontainers.image.url="https://github.com/phpstan/phpstan" \
-      org.opencontainers.image.documentation="https://github.com/phpstan/phpstan/blob/1.11.x/README.md" \
-      org.opencontainers.image.source="https://github.com/M-arcus/php-phpstan-docker" \
+      org.opencontainers.image.url="https://github.com/rectorphp/rector" \
+      org.opencontainers.image.documentation="https://github.com/rectorphp/rector/blob/main/README.md" \
+      org.opencontainers.image.source="https://github.com/M-arcus/php-rector-docker" \
       org.opencontainers.image.vendor="M-arcus" \
       org.opencontainers.image.licenses="MIT" \
-      org.opencontainers.image.title="PHPStan"
+      org.opencontainers.image.title="Rector"
 
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer.php && \
     chmod +x composer.php && \
-    echo "{}"  > composer.json && php composer.php config -n allow-plugins.phpstan/extension-installer true && \
-    php composer.php req -n -o phpstan/extension-installer:1.3.1 phpstan/phpstan:${PHP_PHPSTAN_VERSION} phpstan/phpstan-phpunit:1.3.16 phpstan/phpstan-symfony:1.3.9 symplify/phpstan-rules:11.4.1.72 && \
+    php composer.php req -n -o frosh/shopware-rector:0.3.0 rector/rector:${PHP_RECTOR_VERSION} && \
     rm -f composer.php composer.json composer.lock
 
-ENTRYPOINT ["/usr/bin/php", "/vendor/bin/phpstan"]
+ENTRYPOINT ["/usr/bin/php", "/vendor/bin/rector"]
