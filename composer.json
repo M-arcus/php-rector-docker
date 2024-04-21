@@ -1,0 +1,6 @@
+{
+    "require": {
+        "frosh/shopware-rector": "0.3.0",
+        "rector/rector": "1.0.4"
+    }
+}
