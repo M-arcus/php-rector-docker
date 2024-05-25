@@ -14,7 +14,7 @@ COPY composer.json composer.lock ./
 
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer.php && \
     chmod +x composer.php && \
-    php composer.php req -n -o rector/rector:${PHP_RECTOR_VERSION} && \
+    php composer.php req -n -o -W rector/rector:${PHP_RECTOR_VERSION} && \
     rm -f composer.php composer.json composer.lock
 
 ENTRYPOINT ["/usr/bin/php", "/vendor/bin/rector"]
