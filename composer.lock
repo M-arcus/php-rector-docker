@@ -4,33 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c419ff5bf1ab87eb1b22859cde402fa4",
+    "content-hash": "1837b7102b63fa2d345a87b4d8f79555",
     "packages": [
         {
             "name": "frosh/shopware-rector",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfShopware/shopware-rector.git",
-                "reference": "33a50d9f193ee8d70513452eee2350e18225c126"
+                "reference": "b1468779fef0fac16475e93bdaeafe98d6099c0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfShopware/shopware-rector/zipball/33a50d9f193ee8d70513452eee2350e18225c126",
-                "reference": "33a50d9f193ee8d70513452eee2350e18225c126",
+                "url": "https://api.github.com/repos/FriendsOfShopware/shopware-rector/zipball/b1468779fef0fac16475e93bdaeafe98d6099c0a",
+                "reference": "b1468779fef0fac16475e93bdaeafe98d6099c0a",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1"
             },
             "conflict": {
-                "rector/rector": "<0.19.2"
+                "rector/rector": "<1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "~3.22.0",
+                "friendsofphp/php-cs-fixer": "^3.57",
                 "phpstan/phpstan": "~1.10.26",
                 "phpunit/phpunit": "^9.5",
-                "rector/rector": "0.19.2",
+                "rector/rector": "^1.0",
                 "symfony/var-dumper": "*",
                 "symplify/easy-coding-standard": "~11.2",
                 "tracy/tracy": "^2.9"
@@ -55,9 +55,9 @@
             "description": "Shopware specific Rector",
             "support": {
                 "issues": "https://github.com/FriendsOfShopware/shopware-rector/issues",
-                "source": "https://github.com/FriendsOfShopware/shopware-rector/tree/0.3.0"
+                "source": "https://github.com/FriendsOfShopware/shopware-rector/tree/0.4.0"
             },
-            "time": "2024-01-19T14:18:20+00:00"
+            "time": "2024-05-18T17:03:10+00:00"
         },
         {
             "name": "phpstan/phpstan",
